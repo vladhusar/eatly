@@ -560,6 +560,7 @@ body {
 
 .quality {
   padding-top: 60px;
+  margin-bottom: 80px;
 }
 
 .quality__text {
@@ -615,13 +616,13 @@ body {
   content: "";
   position: absolute;
   background-image: url(./img/afterQuality.svg);
-  top: 50px;
-  left: -85px;
+  top: 40px;
+  left: 115px;
   width: 110px;
   height: 60px;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: rotate(105deg);
+  transform: rotate(1deg);
 }
 .quality__wrapper {
   display: flex;
@@ -629,6 +630,10 @@ body {
 }
 .quality__img__inner {
   position: relative;
+  animation-name: qualityAnimWrapper;
+  animation-duration: 1.5s;
+  transition: opacity 0.3s linear;
+  opacity: 1;
 }
 .quality__img__inner::before {
   content: "";
@@ -646,6 +651,10 @@ body {
   padding: 0 10px;
 }
 @media screen and (min-width: 768px) {
+  .quality {
+    padding-top: 90px;
+    margin-bottom: 120px;
+  }
   .quality__inner {
     display: flex;
     flex-direction: row-reverse;
@@ -670,5 +679,37 @@ body {
 
   .quality__img {
     max-width: 390px;
+  }
+}
+.quality__animation {
+  animation-name: qualityAnim;
+  animation-duration: 1.5s;
+  transition: opacity 0.3s linear;
+  opacity: 1;
+}
+
+@keyframes qualityAnim {
+  0% {
+    transform: translateX(-100vh);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0vh);
+    opacity: 1;
+  }
+}
+
+@keyframes qualityAnimWrapper {
+  0% {
+    transform: translateX(100vh);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0vh);
+    opacity: 1;
   }
 }

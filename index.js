@@ -18,13 +18,24 @@ const isElementInViewport = (el) => {
   );
 };
 
-const handleScroll = () => {
+const customersScroll = () => {
   const section = document.querySelector(".customers__list");
   if (isElementInViewport(section)) {
     section.classList.add("customers__animation");
-    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("scroll", customersScroll);
   }
 };
 
-window.addEventListener("scroll", handleScroll);
-handleScroll();
+window.addEventListener("scroll", customersScroll);
+customersScroll()
+
+const qualityScroll = () => {
+  const section = document.querySelector(".quality__inner");
+  if (isElementInViewport(section)) {
+    section.classList.add("quality__animation");
+    window.removeEventListener("scroll", qualityScroll);
+  }
+};
+
+window.addEventListener("scroll", qualityScroll);
+qualityScroll()
