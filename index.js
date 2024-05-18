@@ -243,7 +243,6 @@ const createPurchasesList = purchasesData
   .join("");
 purchasesList.innerHTML = createPurchasesList;
 
-
 const swiperData = [
   {
     id: 1,
@@ -337,4 +336,21 @@ const newSwiper = new Swiper(".mySwiper", {
     el: ".swiper-scrollbar",
     hide: true,
   },
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const qualitySection = document.querySelector(".quality");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("quality__animation");
+          observer.unobserve(entry.target); // Зупиняємо спостереження після запуску анімації
+        }
+      });
+    },
+    { threshold: 0.1 }
+  ); // Налаштування, яке визначає, коли спрацьовує
+  observer.observe(qualitySection);
 });

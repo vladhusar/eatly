@@ -316,7 +316,7 @@ body {
 }
 
 .hero__preview::after {
-  content: "OVER 1000 USERS";
+  content: "---- OVER 1000 USERS";
   position: absolute;
   top: -20px;
   color: var(--secondary-color);
@@ -644,8 +644,10 @@ body {
 }
 
 .quality__text h2 {
+  text-align: center;
   font-family: var(--main-font);
   font-size: var(--title-font);
+  padding: 12px;
 }
 
 .quality__img__inner {
@@ -665,16 +667,39 @@ body {
   transform: rotate(350deg);
 }
 
-.quality__text span {
-  padding: 0 10px;
-}
 
 .quality__wrapper {
+  display: flex;
+  justify-content: center;
   opacity: 0;
 }
 
 .quality__text {
   opacity: 0;
+}
+
+.quality__text h2 {
+  text-align: center;
+  font-family: var(--main-font);
+  font-size: var(--title-font);
+  padding: 12px;
+}
+
+.quality__img__inner {
+  position: relative;
+}
+
+.quality__img__inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 35px;
+  background-image: url(./img/icons/quality-img-before.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(350deg);
 }
 
 .quality__animation .quality__wrapper {
@@ -686,40 +711,38 @@ body {
 .quality__animation .quality__text {
   animation-name: qualityAnim;
   animation-duration: 1.5s;
+  animation-fill-mode: forwards;
   opacity: 1;
 }
 
 @keyframes qualityAnim {
   0% {
-    opacity: 0;
-    transform: translateX(100vh);
+      opacity: 0;
+      transform: translateX(100px);
   }
   50% {
-    opacity: 0.5;
+      opacity: 0.5;
   }
-
   99% {
-    opacity: 1;
-    transform: translateX(0vh);
+      opacity: 1;
+      transform: translateX(0);
   }
 }
 
 @keyframes qualityAnimWrapper {
   0% {
-    opacity: 0;
-    transform: translateX(0vh);
+      opacity: 0;
+      transform: translateX(0vh);
   }
   50% {
-    opacity: 0;
-    transform: translateX(-100vh);
+      opacity: 0;
+      transform: translateX(-100vh);
   }
-
   100% {
-    opacity: 1;
-    transform: translateX(0vh);
+      opacity: 1;
+      transform: translateX(0vh);
   }
 }
-
 @media screen and (min-width: 768px) {
   .quality__inner {
     display: flex;
